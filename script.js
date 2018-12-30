@@ -82,8 +82,10 @@ const gbw = () => {
     }
 
     // add item to list only if we used a denomination
-    if (count) {
-      output += "<li>" + count + " x " + d + "</li>";
+    if (count == 1) {
+      output += "<li>" + count + " x " + d + " plate</li>";
+    } else if (count > 1) {
+      output += "<li>" + count + " x " + d + " plates</li>";
     }
   }
 
