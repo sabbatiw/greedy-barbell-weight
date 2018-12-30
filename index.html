@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>greedy barbell weight</title>
+  <meta name="author" content="sabbatiw">
+  <meta name="description" content="greedy algorithm for barbell weight">
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  ================================================== -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  ================================================== -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+
+  <!-- Favicon
+  ================================================== -->
+  <link rel="icon" type="image/png" href="/img/pbd.png">
+
+  <!-- Javascript
+  ================================================== -->
+  <script src="script.js" defer></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+  <div class="container">
+    <div class="row">
+      <div class="twelve-columns" style="margin-top: 7%">
+        <form onsubmit="return false">
+          <label>Weight to lift:
+            <input type="number" id="weight_input" oninput="gbw()" min="45" max="10000">
+          </label>
+        </form>
+        <div id="weight_list"></div>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  ================================================== -->
+</body>
+</html>
