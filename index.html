@@ -21,6 +21,7 @@
   ================================================== -->
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/barbell.css">
 
   <!-- Favicon
   ================================================== -->
@@ -37,15 +38,18 @@
   ================================================== -->
   <div class="container">
     <div class="row">
-      <div class="twelve-columns" style="margin-top: 7%">
-        <form onsubmit="return false">
-          <label>Weight to lift:
-            <input type="number" id="weight_input" oninput="gbw()" min="45" max="10000">
-          </label>
-        </form>
+      <div class="three columns offset-by-three" style="margin-top: 7%">
+        <div>
+          <span class="barbell_heading">Weight to lift:&nbsp;&nbsp;</span>
+          <input type="number" id="weight_input" oninput="gbw()" min="45" max="1100">
+        </div>
         <div id="weight_list"></div>
-        <br>
-        <a href="https://github.com/sabbatiw/greedy-barbell-weight/">github</a>
+      </div>
+      <div class="three columns" style="margin-top: 7%">
+        <div class="barbell_heading">Total:&nbsp;&nbsp;<span id="total"></span></div>
+        <div>using a <span id="bar"></span> pound bar</div>
+        <div>max weight is <a href="https://en.wikipedia.org/wiki/Deadlift#World_records">1100 pounds</a></div>
+        <div>algorithm on <a href="https://github.com/sabbatiw/greedy-barbell-weight/">github</a></div>
       </div>
     </div>
   </div>

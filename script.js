@@ -2,10 +2,16 @@
 const barWeight = 45;
 const denominations = [45, 35, 25, 10, 5, 2.5]; // descending order is required
 const low = 2.5;
+const max = 1100
 
 // cache dom elements
+const barSpan = document.getElementById('bar');
 const outputDiv = document.getElementById('weight_list');
+const totalSpan = document.getElementById('total');
 const weightInput = document.getElementById('weight_input');
+
+// display bar weight
+barSpan.innerHTML = barWeight;
 
 // rounds weight to nearest multiple of 2 * low
 const roundWeight = weight => {
@@ -25,7 +31,12 @@ const roundWeight = weight => {
 const gbw = () => {
   // user provided input
   const inputWeight = weightInput.value;
-  
+ 
+  // enforce max input weight 
+  if (inputWeight > max) {
+    inputWeight = max;
+  }
+ 
   // running total of weight to lift (including bar)
   let totalWeightWithBar = barWeight;
 
@@ -37,8 +48,9 @@ const gbw = () => {
   
   // nothing to calculate
   if (currentWeight < low) {
-    output = "just use the bar (" + barWeight + " pounds).";
+    output = "just use the bar";
     outputDiv.innerHTML = output;
+    totalSpan.innerHTML = barWeight + " pounds";
     return;
   }
 
@@ -46,8 +58,8 @@ const gbw = () => {
   currentWeight = roundWeight(currentWeight);
   currentWeight /= 2;
 
-  // results will be an html list
-  output = "On each side use:<br><ul>";
+  // results are an html unordered list
+  output = "On each side use:<ul>";
 
   // greedy algorithm
   for (let d of denominations) {
@@ -65,7 +77,7 @@ const gbw = () => {
       }
 
       totalWeightWithBar += 2 * d; // one on each side of barbell
-      ++count;
+      count++;
       currentWeight = newWeight;
     }
 
@@ -75,9 +87,10 @@ const gbw = () => {
     }
   }
 
-  // provide the actual total weight for the user
-  output += "</ul>for a total of " + totalWeightWithBar + " pounds";
+  // close the html list
+  output += "</ul>";
   
   // display results
   outputDiv.innerHTML = output;
+  totalSpan.innerHTML = totalWeightWithBar + " pounds";
 }
